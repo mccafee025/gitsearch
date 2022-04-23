@@ -28,7 +28,7 @@ export class ResultComponent implements OnInit {
 
   ngOnInit(): void {
     this.user = this.githubapiService.user;
-    this.repoDetaisl = this.githubapiService.repoData;
+    this.repoDetails = this.githubapiService.repoData;
         
   }
 
