@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { GithubapiService } from '../githubapi.service';
+import { User } from '../user';
 
 @Component({
   selector: 'app-result',
@@ -6,10 +8,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./result.component.css']
 })
 export class ResultComponent implements OnInit {
+  user:any = User;
+  repoDetaisl = [];
+  githubapiService: GithubapiService;
+  hideInput:any;
 
-  constructor() { }
+  constructor(gitapiService:GithubapiService) {
+    this.githubapiService = gitapiService;
+   }
+
+   @Output () toggleBack = new EventEmitter();
+
+   Back(){
+     this.hideInput = true
+     this.toggleBack.emit(this.hideInput);
+   }
+
+
 
   ngOnInit(): void {
+    this.user = this.githubapiService.user;
+    this.repoDetaisl = this.githubapiService.repoData;
+        
   }
 
 }
