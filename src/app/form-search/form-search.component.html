@@ -1,0 +1,30 @@
+<div>
+    <h1> Github </h1>
+</div>
+<div class="row mt100" *ngIf="showInput">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <form (ngSubmit)="submit()" #gitForm="ngForm" name="Form">
+            <div class ="row">
+                <div class="col-md-6">
+                    <label for="user">Username</label>
+                    <input type="text" class="form-control" id="user" [(ngModel)]="user" name="user">
+                    <button type="submit" class="btn btn-success btn-lg btn-block">Search</button>
+                </div>
+        </form>
+    </div>
+</div>
+<app-form-search *ngIf="showData" (toggleBack)="myInput($event)"></app-form-search>
+
+
+
+
+
+
+
+
+
+
+
+
+
