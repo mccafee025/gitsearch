@@ -9,7 +9,7 @@ import { User } from '../user';
 })
 export class ResultComponent implements OnInit {
   user:any = User;
-  repoDetaisl = [];
+  repoDetails = [];
   githubapiService: GithubapiService;
   hideInput:any;
 
