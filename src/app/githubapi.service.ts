@@ -25,30 +25,30 @@ export class GithubapiService {
      this.repoData.length = 0;
 
      interface ApiResponse {
-       bio:string,
-       avatar_url:string,
-       created_at:Date,
-       updated_at:Date,
-       login:string,
-       public_repos:number;
-       html_url:string,
-       name:string,
+       bio:any,
+       avatar_url:any,
+       created_at:any,
+       updated_at:any,
+       login:any,
+       public_repos:any;
+       html_url:any,
+       name:any,
      }
 
      let promise = new Promise<void>((resolve,reject)=>{
        this.http.get<ApiResponse>("https://api.github.com/users/" + username).toPromise().then(response=>{
-         this.user.bio = response.bio;
-         this.user.avatar_url = response.avatar_url;
-         this.user.login = response.login;
-         this.user.created_at = response.created_at;
-         this.user.public_repos = response.public_repos;
-         this.user.html_url = response.html_url;
-         this.user.updated_at = response.updated_at;
+         this.user.bio = response?.bio;
+         this.user.avatar_url = response?.avatar_url;
+         this.user.login = response?.login;
+         this.user.created_at = response?.created_at;
+         this.user.public_repos = response?.public_repos;
+         this.user.html_url = response?.html_url;
+         this.user.updated_at = response?.updated_at;
 
          resolve()
 
      }),
-       (error)=>{
+       (error:any)=>{
         reject(error)
        }
 
@@ -69,14 +69,3 @@ export class GithubapiService {
   }
 }
 
-      
-
-       }
-     }
-
-
-   }
-
-
-
-}
